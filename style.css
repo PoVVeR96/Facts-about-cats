@@ -1,0 +1,17 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-image: url(cats-bg.jpg);
+    padding-right: 0 !important;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.imageChangeSize img {
+    object-fit: cover;
+    height: 306px;
+    width: 100%;
+}

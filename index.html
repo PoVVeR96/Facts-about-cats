@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ваша колеекция котиков</title>
+  <link href="style.css" rel="stylesheet" />
+  <script defer src="./index.js"></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <header class="text-bg-dark p-2 lh-1 py-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li>
+            <a href="index.html" class="nav-link px-2 text-secondary">Главная</a>
+          </li>
+        </ul>
+        <div class="me-2">
+          <!-- Button trigger modal Add Cat-->
+          <button data-cat-modal-add-cat-button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#addСatForm">
+            Добавить котика
+          </button>
+        </div>
+        <!-- это форма в хедаре после загрузки страницы -->
+        <form name="main">
+          <div data-cat-loginheader-input class="input-group visually-hidden">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input data-header-login-input type="text" class="form-control" placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+            <button data-header-login-ok-button type="button" class="btn btn-primary">ОК</button>
+          </div>
+        </form>
+      </div>
+
+    </header>
+  </div>
+  <main class="container">
+    <div data-wrapper class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1 mb-2"></div>
+  </main>
+  <!-- Modal Log in -->
+  <div class="modal fade bg-dark bg-opacity-50" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Ваши котики
+          </h1>
+        </div>
+        <div class="modal-body">
+          <!-- это самая первая форма -->
+          <form name="main">
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon2">@</span>
+              <input data-first-modal-login-input type="text" class="form-control" placeholder="Username"
+                aria-label="Username" aria-describedby="basic-addon2">
+              <button data-first-modal-login-ok-button type="button" class="btn btn-primary">ОК</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button data-cat-info-open-button type="button" class="btn btn-secondary visually-hidden"
+            data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Add Cat-->
+  <div class="modal fade" id="addСatForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить котика</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- форма добавления кота -->
+        <form id="addCat" name="addCat">
+          <div class="modal-body">
+            <div class="d-grid gap-1">
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="cat-id" name="cat-id" placeholder="id Котика">
+                <label for="cat-id">id котика</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="cat-name" name="cat-name" placeholder="Имя котика">
+                <label for="cat-name">Имя котика</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="cat-image" name="cat-image"
+                  placeholder="Ссылка на изображение">
+                <label for="cat-image">Ссылка на изображение</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="cat-age" name="cat-age" placeholder="Возвраст котика">
+                <label for="cat-age">Возвраст котика</label>
+              </div>
+              <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" name="floatingSelect"
+                  aria-label="Floating label select example">
+                  <option value="0" selected>Оценить котика</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <label for="floatingSelect">Выбрать из списка</label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Описание котика" id="floatingTextarea"
+                  name="cat-description"></textarea>
+                <label for="floatingTextarea">Описание котика</label>
+              </div>
+            </div>
+            <div class="position-relative">
+              <div class="position-absolute top-0 start-50 translate-middle-x">
+                <div class="form-check mb-3">
+                  <input class="form-check-input fs-6" type="checkbox" value="" id="cat-fav" name="cat-fav">
+                  <label class="form-check-label badge bg-primary text-wrap fs-6" for="cat-fav">
+                    Это любимый котик?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-cat-card-modal-add-close-button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Закрыть</button>
+            <button data-modal-add-cat-save-button type="submit" class="btn btn-primary">ДОБАВИТЬ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Модальное окно при клике на карточку котика-->
+  <!-- первая страница модального окна с информацией о котике-->
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Мур-Мур</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div data-modal-first-cat-info class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button data-cat-open-edit class="btn btn-primary" data-bs-target="#exampleModalToggle3"
+            data-bs-toggle="modal">Редактировать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- вторая страница с редактированием или удалением котика -->
+  <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Мур-Мур</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div data-modal-second-cat-info class="modal-body">
+        </div>
+        <div class="modal-footer row align-self-center">
+          <button data-cat-delete type="button" class="btn btn-outline-danger col-12">Удалить котика</button>
+          <button data-cat-edit-modal-close-button type="button" class="btn btn-secondary col-12"
+            data-bs-dismiss="modal">Закрыть</button>
+          <button data-modal-cat-info-second-cancel class="btn btn-primary visually-hidden"
+            data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">ОТМЕНА</button>
+
+          <button data-cat-edit-modal-second-send-button type="submit"
+            class="btn btn-outline-primary col-12">ОТПРАВИТЬ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-absolute top-50 start-50 translate-middle" style="display: none;">
+    <button data-cat-open-info class="btn btn-primary visually-hidden" data-bs-target="#exampleModalToggle2"
+      data-bs-toggle="modal">Back to
+      first</button>
+  </div>
+</body>
+
+</html>
